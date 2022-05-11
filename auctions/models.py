@@ -9,6 +9,8 @@ class Listing(models.Model):
     starting_bid = models.IntegerField()
     description = models.CharField(max_length=254)
     category = models.CharField(max_length=64, blank=True)
+    brand = models.CharField(max_length=64, blank=True)
+    model = models.CharField(max_length=64, blank=True)
     url = models.CharField(max_length=254)
     date = models.DateTimeField(auto_now_add=True, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')

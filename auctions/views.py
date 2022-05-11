@@ -29,9 +29,13 @@ def index(request):
     all_listings = Listing.objects.all()
     # Get unique values from category query
     all_categories = Listing.objects.values('category').distinct().exclude(category__exact='')
+    all_brands = Listing.objects.values('brand').distinct().exclude(brand__exact='')
+    all_models = Listing.objects.values('model').distinct().exclude(model__exact='')
     return render(request, "auctions/index.html", {
         "all_categories": all_categories,
-        "listings": all_listings})
+        "listings": all_listings,
+        "all_brands": all_brands,
+        "all_models": all_models})
 
 
 def login_view(request):
@@ -110,8 +114,6 @@ def create_listing(request):
                 "message": "Listing not created."
             })
     return render(request, "auctions/create_listing.html")
-
-
 
 
 def active_listing(request, listing_id):
@@ -247,4 +249,20 @@ def category(request, category):
     return render(request, "auctions/category.html", {
         'category': category,
         'listing_category': listing_category
+    })
+
+
+def brand(request, brand):
+    listing_brand = Listing.objects.filter(brand=brand)
+    return render(request, "auctions/brand.html", {
+        'brand': brand,
+        'listing_brand': listing_brand
+    })
+
+
+def model(request, model):
+    listing_model = Listing.objects.filter(model=model)
+    return render(request, "auctions/model.html", {
+        'model': model,
+        'listing_model': listing_model
     })

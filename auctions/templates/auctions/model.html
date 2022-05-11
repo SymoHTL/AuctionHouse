@@ -1,9 +1,9 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-<p> Category: <strong> {{category}} </strong> </p>
+<p> Model: <strong> {{model}} </strong> </p>
 <ul class="d-flex">
-    {% for listing in listing_category %}
+    {% for listing in listing_model %}
         {% if listing.active == True %}
         <div onclick="window.open('{% url "active_listing" listing.id %}', '_self');" class="card" style="width: 18rem;">            <div class="card-body">
                 <h5 class="card-title">

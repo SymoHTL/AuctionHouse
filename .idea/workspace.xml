@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" name="Changes" comment="" />
+    <list default="true" id="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auctions/templates/auctions/brand.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auctions/templates/auctions/model.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AuctionHouse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AuctionHouse.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/create_listing.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/create_listing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
+    <list id="f1f4be30-d0a3-430c-809e-53272c71d065" name="Changes by User" comment="">
+      <change beforePath="$PROJECT_DIR$/auctions/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Hamanek_ITPL" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/auctions/views.py">
+      <ranges>
+        <range start1="31" end1="31" start2="31" end2="33" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="33" end1="34" start2="35" end2="38" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="92" end1="92" start2="96" end2="98" changelist="f1f4be30-d0a3-430c-809e-53272c71d065" />
+        <range start1="93" end1="94" start2="99" end2="103" changelist="f1f4be30-d0a3-430c-809e-53272c71d065" />
+        <range start1="114" end1="116" start2="123" end2="123" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="250" end1="250" start2="257" end2="274" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -23,11 +58,43 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/SCHULE/HTL/4.KLASSE/ITPL/AuctionHouse",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "D:/SCHULE/HTL/4.KLASSE/ITPL/AuctionHouse/auctions/templates/auctions",
+    "settings.editor.selected.configurable": "CodeWithMe"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SCHULE\HTL\4.KLASSE\ITPL\AuctionHouse\auctions\templates\auctions" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AuctionHouse" type="Python.DjangoServer" factoryName="Django server">
+      <module name="AuctionHouse" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -36,7 +103,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652249686866</updated>
-      <workItem from="1652249688142" duration="3745000" />
+      <workItem from="1652249688142" duration="7838000" />
+      <workItem from="1652257595235" duration="590000" />
     </task>
     <servers />
   </component>

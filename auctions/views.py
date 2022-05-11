@@ -94,8 +94,13 @@ def register(request):
 def create_listing(request):
     if request.method == "GET":
         all_categories = Listing.objects.values('category').distinct().exclude(category__exact='')
+        all_brands = Listing.objects.values('brand').distinct().exclude(brand__exact='')
+        all_models = Listing.objects.values('model').distinct().exclude(model__exact='')
         return render(request, "auctions/create_listing.html", {
-            "all_categories": all_categories})
+            "all_categories": all_categories,
+            "all_brands": all_brands,
+            "all_models": all_models,
+        })
     if request.method == "POST":
         name = request.POST["name"]
         category = request.POST['category']

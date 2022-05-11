@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h1> My Watchlist</h1>
+<ul>
+    {% for listing in all_watchlists %}
+        <div onclick="window.open('{% url "active_listing" listing.listing_item.id %}', '_self');" class="card" style="width: 18rem;">            <div class="card-body">
+                <h5 class="card-title">
+                    {{ listing.listing_item.name}}
+                </h5>
+                <img class="card-img-top" src="{{ listing.listing_item.url}}">
+                <p class="card-text">Description:{{ listing.listing_item.description }}</p>
+                <p class="card-text">Starting bid: {{ listing.listing_item.starting_bid }}€</p>
+            </div>
+        </div>
+    {% endfor %}
+</ul>
+
+{% endblock %}

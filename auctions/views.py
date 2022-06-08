@@ -5,19 +5,17 @@ from django.shortcuts import render
 from django.urls import reverse
 from django import forms
 from django.db.models import Max
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.core.exceptions import ValidationError
 from django.contrib.auth.decorators import login_required
 
-from .models import User, Listing, Watchlist, Bid, Comment
+from .models import User, Listing, Watchlist, Bid, Comment, Category, Brand, Model
 
 
-class Bid_form(forms.Form):
+class BidForm(forms.Form):
     bid_form = forms.IntegerField(required=True, label='Create your bid')
     bid_form.widget.attrs.update({'class': 'form-control'})
 
 
-class Comment_form(forms.Form):
+class CommentForm(forms.Form):
     comment = forms.CharField(widget=forms.Textarea(), label='Leave a comment')
     comment.widget.attrs.update({
         'class': 'form-control',
@@ -28,9 +26,9 @@ class Comment_form(forms.Form):
 def index(request):
     all_listings = Listing.objects.all()
     # Get unique values from category query
-    all_categories = Listing.objects.values('category').distinct().exclude(category__exact='')
-    all_brands = Listing.objects.values('brand').distinct().exclude(brand__exact='')
-    all_models = Listing.objects.values('model').distinct().exclude(model__exact='')
+    all_categories = Category.objects.all()
+    all_brands = Brand.objects.all()
+    all_models = Model.objects.all()
     return render(request, "auctions/index.html", {
         "all_categories": all_categories,
         "listings": all_listings,
@@ -93,9 +91,9 @@ def register(request):
 @login_required
 def create_listing(request):
     if request.method == "GET":
-        all_categories = Listing.objects.values('category').distinct().exclude(category__exact='')
-        all_brands = Listing.objects.values('brand').distinct().exclude(brand__exact='')
-        all_models = Listing.objects.values('model').distinct().exclude(model__exact='')
+        all_categories = Category.objects.all()
+        all_brands = Brand.objects.all()
+        all_models = Model.objects.all()
         return render(request, "auctions/create_listing.html", {
             "all_categories": all_categories,
             "all_brands": all_brands,
@@ -103,35 +101,52 @@ def create_listing(request):
         })
     if request.method == "POST":
         name = request.POST["name"]
-        category = request.POST['category']
+        categoryId = request.POST["categoryId"]
+        brandId = request.POST["brandId"]
+        modelId = request.POST["modelId"]
         starting_bid = request.POST["starting_bid"]
         description = request.POST["description"]
         url = request.POST["url"]
         owner = request.POST['owner']
         user_owner = User.objects.get(username=owner)
         try:
-            Listings_created = Listing(name=name, category=category, starting_bid=starting_bid, description=description,
-                                       url=url, owner=user_owner)
-            Listings_created.save()
+            listings_created = Listing(name=name, category_id=categoryId, brand_id=brandId, model_id=modelId,
+                                       starting_bid=starting_bid, description=description, url=url, owner=user_owner)
+
+            listings_created.save()
             return HttpResponseRedirect(reverse("index"))
         except IntegrityError:
             return render(request, "auctions/create_listing.html", {
                 "message": "Listing not created."
             })
+
     return render(request, "auctions/create_listing.html")
+
+
+@login_required
+def purchase_history(request):
+    if request.method == "GET":
+        listings = []
+        if len(Listing.objects.get(winner_id=request.user.id)) is 0:
+            listings = Listing.objects.none()
+        else:
+            listings = Listing.objects.get(winner_id=request.user.id)
+        return render(request, "auctions/purchase_history.html", {
+            "listings": listings
+        })
 
 
 def active_listing(request, listing_id):
     try:
         listing = Listing.objects.get(id=listing_id)
-        curent_user = request.user.id
+        current_user = request.user.id
         bid_count = Bid.objects.filter(item_bid=listing_id).count()
         if bid_count > 0:
             max_bid = Bid.objects.filter(item_bid=listing_id).aggregate(Max('bid'))
             max_bid = max_bid['bid__max']
         else:
             max_bid = listing.starting_bid
-        if Watchlist.objects.filter(user_watchlist=curent_user, listing_item=listing_id).exists():
+        if Watchlist.objects.filter(user_watchlist=current_user, listing_item=listing_id).exists():
             watchlist_state = False
         else:
             watchlist_state = True
@@ -142,30 +157,40 @@ def active_listing(request, listing_id):
     comments = Comment.objects.filter(listing_comment=listing_id)
     # Make a Bid block
     if request.method == 'POST':
-        form = Bid_form(request.POST)
-        curent_user = request.user.id
+        form = BidForm(request.POST)
+        current_user = request.user.id
         listing_id = request.POST["listing_id"]
         listing_item = Listing.objects.get(id=listing_id)
-        user_bid = User.objects.get(id=curent_user)
+        user_bid = User.objects.get(id=current_user)
         if form.is_valid():
-            curent_bid = form.cleaned_data['bid_form']
+            current_bid = form.cleaned_data['bid_form']
             bid_count = Bid.objects.filter(item_bid=listing_id).count()
             if bid_count > 0:
                 max_bid = Bid.objects.filter(item_bid=listing_id).aggregate(Max('bid'))
                 max_bid = max_bid['bid__max']
             else:
                 max_bid = listing_item.starting_bid
-            if curent_bid > max_bid:
-                bid = Bid(user_bid=user_bid, item_bid_id=listing_item.id, bid=curent_bid)
+            if current_user is listing_item.owner.id:
+                return render(request, "auctions/active_listing.html", {
+                    "listing": listing_item,
+                    'comments': comments,
+                    'max_bid': max_bid,
+                    'bid_count': bid_count,
+                    'form': BidForm(),
+                    'comment_form': CommentForm(),
+                    "err_message": "You cannot bid on your own listing."
+                })
+            if current_bid > max_bid:
+                bid = Bid(user_bid=user_bid, item_bid_id=listing_item.id, bid=current_bid)
                 bid.save()
                 return render(request, "auctions/active_listing.html", {
                     "listing": listing_item,
                     'comments': comments,
-                    'max_bid': curent_bid,
+                    'max_bid': current_bid,
                     'bid_count': bid_count + 1,
-                    'form': Bid_form(),
-                    'comment_form': Comment_form(),
-                    "succ_message": f"You made a successful bid for {curent_bid} € !"
+                    'form': BidForm(),
+                    'comment_form': CommentForm(),
+                    "succ_message": f"You made a successful bid for {current_bid} € !"
                 })
             else:
                 return render(request, "auctions/active_listing.html", {
@@ -173,9 +198,9 @@ def active_listing(request, listing_id):
                     'comments': comments,
                     'max_bid': max_bid,
                     'bid_count': bid_count,
-                    'form': Bid_form(),
-                    'comment_form': Comment_form(),
-                    "err_message": "Bid can't be less than curent max bid"
+                    'form': BidForm(),
+                    'comment_form': CommentForm(),
+                    "err_message": "Bid can't be less than current max bid"
                 })
         else:
             return HttpResponseBadRequest("Form is not valid")
@@ -186,31 +211,31 @@ def active_listing(request, listing_id):
         'watchlist_state': watchlist_state,
         'bid_count': bid_count,
         'max_bid': max_bid,
-        'form': Bid_form(),
-        'comment_form': Comment_form()
+        'form': BidForm(),
+        'comment_form': CommentForm()
     })
 
 
 @login_required
 def watchlist(request):
-    curent_user = request.user.id
+    current_user = request.user.id
     if request.method == "POST":
         listing_id = request.POST["listing_id"]
         # Get User id and Listing id through their models
-        watching_user = User.objects.get(id=curent_user)
+        watching_user = User.objects.get(id=current_user)
         listing_item = Listing.objects.get(id=listing_id)
         # Create watchlist
         watchlist = Watchlist(user_watchlist=watching_user, listing_item=listing_item)
         # Check if user already have that item in watchlist
-        curent_item = Watchlist.objects.filter(user_watchlist=curent_user, listing_item=listing_item)
-        if curent_item.exists():
-            curent_item.delete()
+        current_item = Watchlist.objects.filter(user_watchlist=current_user, listing_item=listing_item)
+        if current_item.exists():
+            current_item.delete()
         else:
             watchlist.save()
-    curent_watch_id = Watchlist.objects.filter(user_watchlist=curent_user)
-    curent_watchlist = curent_watch_id.all()
+    current_watch_id = Watchlist.objects.filter(user_watchlist=current_user)
+    current_watchlist = current_watch_id.all()
     return render(request, "auctions/watchlist.html", {
-        "all_watchlists": curent_watchlist
+        "all_watchlists": current_watchlist
     })
 
 
@@ -234,15 +259,15 @@ def close_bid(request):
 
 @login_required
 def comment(request):
-    curent_user = request.user.id
-    curent_user = User.objects.get(id=curent_user)
-    comment_form = Comment_form(request.POST)
+    current_user = request.user.id
+    current_user = User.objects.get(id=current_user)
+    comment_form = CommentForm(request.POST)
     if request.method == "POST":
         listing_id = request.POST["listing_id"]
         listing_item = Listing.objects.get(id=listing_id)
         if comment_form.is_valid():
-            curent_comment = comment_form.cleaned_data['comment']
-            create_comment = Comment(user_comment=curent_user, listing_comment=listing_item, comment=curent_comment)
+            current_comment = comment_form.cleaned_data['comment']
+            create_comment = Comment(user_comment=current_user, listing_comment=listing_item, comment=current_comment)
             create_comment.save()
             return HttpResponseRedirect(reverse('active_listing', args=(listing_id,)))
         else:
@@ -250,7 +275,8 @@ def comment(request):
 
 
 def category(request, category):
-    listing_category = Listing.objects.filter(category=category)
+    category = Category.objects.get(category=category)
+    listing_category = Listing.objects.filter(category_id=category.id)
     return render(request, "auctions/category.html", {
         'category': category,
         'listing_category': listing_category
@@ -258,7 +284,8 @@ def category(request, category):
 
 
 def brand(request, brand):
-    listing_brand = Listing.objects.filter(brand=brand)
+    brand = Brand.objects.get(brand=brand)
+    listing_brand = Listing.objects.filter(brand_id=brand.id)
     return render(request, "auctions/brand.html", {
         'brand': brand,
         'listing_brand': listing_brand
@@ -266,7 +293,8 @@ def brand(request, brand):
 
 
 def model(request, model):
-    listing_model = Listing.objects.filter(model=model)
+    model = Model.objects.get(model=model)
+    listing_model = Listing.objects.filter(model_id=model.id)
     return render(request, "auctions/model.html", {
         'model': model,
         'listing_model': listing_model

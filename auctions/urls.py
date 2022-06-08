@@ -10,9 +10,11 @@ urlpatterns = [
     path('create_listing', views.create_listing, name='create_listing'),
     path('brand/<str:brand>', views.brand, name='brand'),
     path('model/<str:model>', views.model, name='model'),
+    path('category/<str:category>', views.category, name='category'),
     path("<int:listing_id>", views.active_listing, name="active_listing"),
     path("watchlist", views.watchlist, name="watchlist"),
+    path("purchase_history", views.purchase_history, name="purchase_history"),
     path("close_bid", views.close_bid, name="close_bid"),
     path('comment', views.comment, name='comment'),
-    path('category/<str:category>', views.category, name='category'),
+
     ]

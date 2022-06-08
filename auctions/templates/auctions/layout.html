@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%">
     <head>
         <title>{% block title %}Auctions{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -26,7 +26,10 @@
                 </li>     
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>
-                </li>                            
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'purchase_history' %}">Purchase History</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                 </li>
@@ -42,8 +45,8 @@
         <hr>
         {% block body %}
         {% endblock %}
-    <footer style="position: absolute; bottom: 0; left: 40%">
-        <p>&copy; Copyright 2022 Hamanek & Miloczki</p>
-        </footer>
+    <div style="position: relative; bottom: 0;">
+        <p class="text-center">&copy; Copyright 2022 Hamanek & Miloczki</p>
+        </div>
     </body>
 </html>

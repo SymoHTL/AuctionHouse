@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auctions/templates/auctions/brand.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auctions/templates/auctions/model.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AuctionHouse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AuctionHouse.iml" afterDir="false" />
+    <list default="true" id="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" name="Changes" comment="copy des right">
+      <change afterPath="$PROJECT_DIR$/auctions/templates/auctions/purchase_history.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9da6b76d-cee2-41f9-9c70-5846c8b1b54c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9da6b76d-cee2-41f9-9c70-5846c8b1b54c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/category.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/create_listing.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/create_listing.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auctions/templates/auctions/model.html" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/templates/auctions/model.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctions/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auctions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
     </list>
-    <list id="f1f4be30-d0a3-430c-809e-53272c71d065" name="Changes by User" comment="">
-      <change beforePath="$PROJECT_DIR$/auctions/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/admin.py" afterDir="false" />
+    <list id="f1f4be30-d0a3-430c-809e-53272c71d065" name="Changes by User" comment="Changes by User">
       <change beforePath="$PROJECT_DIR$/auctions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/auctions/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +31,50 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/auctions/views.py">
       <ranges>
-        <range start1="31" end1="31" start2="31" end2="33" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
-        <range start1="33" end1="34" start2="35" end2="38" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
-        <range start1="92" end1="92" start2="96" end2="98" changelist="f1f4be30-d0a3-430c-809e-53272c71d065" />
-        <range start1="93" end1="94" start2="99" end2="103" changelist="f1f4be30-d0a3-430c-809e-53272c71d065" />
-        <range start1="114" end1="116" start2="123" end2="123" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
-        <range start1="250" end1="250" start2="257" end2="274" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="7" end1="9" start2="7" end2="7" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="11" end1="12" start2="9" end2="10" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="14" end1="15" start2="12" end2="13" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="19" end1="20" start2="17" end2="18" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="30" end1="33" start2="28" end2="31" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="95" end1="98" start2="93" end2="96" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="105" end1="106" start2="103" end2="106" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="112" end1="115" start2="112" end2="116" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="120" end1="120" start2="121" end2="122" changelist="f1f4be30-d0a3-430c-809e-53272c71d065" />
+        <range start1="121" end1="121" start2="123" end2="136" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="126" end1="127" start2="141" end2="142" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="133" end1="134" start2="148" end2="149" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="144" end1="146" start2="159" end2="161" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="148" end1="149" start2="163" end2="164" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="150" end1="151" start2="165" end2="166" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="157" end1="159" start2="172" end2="184" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="163" end1="164" start2="188" end2="189" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="165" end1="168" start2="190" end2="193" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="175" end1="178" start2="200" end2="203" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="188" end1="190" start2="213" end2="215" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="195" end1="196" start2="220" end2="221" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="199" end1="200" start2="224" end2="225" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="204" end1="207" start2="229" end2="232" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="209" end1="211" start2="234" end2="236" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="212" end1="213" start2="237" end2="238" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="236" end1="239" start2="261" end2="264" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="243" end1="245" start2="268" end2="270" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="252" end1="253" start2="277" end2="279" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="260" end1="261" start2="286" end2="288" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
+        <range start1="268" end1="269" start2="295" end2="297" changelist="5dc80851-da43-4bbe-9ab8-6263d6b7d26d" />
       </ranges>
     </file>
   </component>
@@ -56,13 +89,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "D:/SCHULE/HTL/4.KLASSE/ITPL/AuctionHouse/auctions/templates/auctions",
-    "settings.editor.selected.configurable": "CodeWithMe"
+    "last_opened_file_path": "D:/SCHULE/HTL/4.KLASSE/KI/KI - ÜBUNG/sj2122_4ahit_ki_la2_hamanek_simon/reccomendationEngine",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -104,11 +141,45 @@
       <option name="presentableId" value="Default" />
       <updated>1652249686866</updated>
       <workItem from="1652249688142" duration="7838000" />
-      <workItem from="1652257595235" duration="590000" />
+      <workItem from="1652257595235" duration="2892000" />
+      <workItem from="1652362577404" duration="16000" />
+      <workItem from="1653458042682" duration="8591000" />
+      <workItem from="1654667698770" duration="3956000" />
     </task>
+    <task id="LOCAL-00001" summary="copy des right">
+      <created>1652258346527</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652258346527</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes by User">
+      <created>1652258350472</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652258350472</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="copy des right" />
+    <MESSAGE value="Changes by User" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by User" />
   </component>
 </project>

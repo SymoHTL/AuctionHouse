@@ -15,19 +15,19 @@
         </div>
     <hr>
         <div class="form-group">
-            <select autofocus name="category" class="form-control">
+            <select autofocus name="categoryId" class="form-control">
 	        {% for category in all_categories %}
-		            <option value="{{ category.category }}" name="category">{{ category.category }}</option>
+		            <option value="{{ category.id }}" name="categoryId">{{ category.category }}</option>
             {% endfor %}
         </select>
-        <select autofocus name="brand" class="form-control my-2">
+        <select autofocus name="brandId" class="form-control my-2">
 	        {% for brand in all_brands %}
-		            <option value="{{ brand.brand }}" name="category">{{ brand.brand }}</option>
+		            <option value="{{ brand.id }}" name="brandId">{{ brand.brand }}</option>
             {% endfor %}
         </select>
-        <select autofocus name="model" class="form-control">
+        <select autofocus name="modelId" class="form-control">
 	        {% for model in all_models %}
-		            <option value="{{ model.model }}" name="category">{{ model.model }}</option>
+		            <option value="{{ model.id }}" name="modelId">{{ model.model }}</option>
             {% endfor %}
         </select>
         </div>

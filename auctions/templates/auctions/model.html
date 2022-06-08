@@ -3,19 +3,25 @@
 {% block body %}
 <p> Model: <strong> {{model}} </strong> </p>
 <ul class="d-flex">
-    {% for listing in listing_model %}
-        {% if listing.active == True %}
-        <div onclick="window.open('{% url "active_listing" listing.id %}', '_self');" class="card" style="width: 18rem;">            <div class="card-body">
-                <h5 class="card-title">
-                    {{ listing.name}}
-                </h5>
-                <img class="card-img-top" src="{{ listing.url}}">
-                <p class="card-text">Description:{{ listing.description }}</p>
-                <p class="card-text">Starting bid: {{ listing.starting_bid }}€</p>
-            </div>
-        </div>
-        {% endif %}
-    {% endfor %}
+{% for listing in listing_model %}
+                {% if listing.active == True %}
+                    <div onclick="window.open('{% url "active_listing" listing.id %}', '_self');" class="card"
+                         style="width: 18rem; margin: 0 0 5px;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ listing.name }}
+                            </h5>
+                            {% if listing.category %}
+                                <a href="category/{{ listing.category }}"
+                                   class="badge badge-primary"> {{ listing.category }} </a>
+                            {% endif %}
+                            <img class="card-img-top" src="{{ listing.url }}">
+                            <p class="card-text">Description: {{ listing.description }}</p>
+                            <p class="card-text">Starting bid: {{ listing.starting_bid }}€</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
 </ul>
 
 {% endblock %}

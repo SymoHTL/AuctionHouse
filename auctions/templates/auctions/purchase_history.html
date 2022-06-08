@@ -1,0 +1,33 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <p> Purchase-History:</p>
+    <ul class="d-flex">
+        {% for listing in listings %}
+            <div onclick="window.open('{% url "active_listing" listing.id %}', '_self');" class="card"
+                 style="width: 18rem; margin: 0 0 5px;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ listing.name }}
+                    </h5>
+                    {% if listing.category %}
+                        <a href="category/{{ listing.category }}"
+                           class="badge badge-primary"> {{ listing.category }} </a>
+                    {% endif %}
+                    {% if listing.brand %}
+                        <a href="category/{{ listing.brand }}"
+                           class="badge badge-primary"> {{ listing.brand }} </a>
+                    {% endif %}
+                    {% if listing.model %}
+                        <a href="category/{{ listing.model }}"
+                           class="badge badge-primary"> {{ listing.model }} </a>
+                    {% endif %}
+                    <img class="card-img-top" src="{{ listing.url }}">
+                    <p class="card-text">Description: {{ listing.description }}</p>
+                    <p class="card-text">Starting bid: {{ listing.starting_bid }}€</p>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
